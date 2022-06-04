@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>WinExe</OutputType>
+        <TargetFramework>net6.0-windows</TargetFramework>
+        <Nullable>enable</Nullable>
+        <UseWPF>true</UseWPF>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <None Remove="Resources\boot_launcher_flow.ymt" />
+      <EmbeddedResource Include="Resources\boot_launcher_flow.ymt" />
+      <None Remove="Resources\startup.meta" />
+      <EmbeddedResource Include="Resources\startup.meta" />
+    </ItemGroup>
+
+</Project>

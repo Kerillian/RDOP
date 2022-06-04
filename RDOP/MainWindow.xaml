@@ -1,0 +1,74 @@
+﻿<Window x:Class="RDOP.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:RDOP"
+        mc:Ignorable="d"
+        Title="RDOP"
+        Height="120"
+        SizeToContent="Height"
+        Width="400"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen">
+	
+	<Window.Resources>
+		<Style TargetType="Grid">
+			<Setter Property="Background" Value="#202020" />
+		</Style>
+
+		<Style TargetType="TextBox">
+			<Setter Property="Background" Value="#181818" />
+			<Setter Property="Foreground" Value="White" />
+			<Setter Property="BorderThickness" Value="0" />
+			<Setter Property="FontSize" Value="16"/>
+			<Setter Property="TextAlignment" Value="Center"></Setter>
+		</Style>
+		
+		<Style TargetType="TextBlock">
+			<Setter Property="Foreground" Value="White" />
+			<Setter Property="TextAlignment" Value="Center"></Setter>
+		</Style>
+
+		<Style TargetType="Button">
+			<Setter Property="Background" Value="#2BAA73" />
+			<Setter Property="Foreground" Value="White" />
+			<Setter Property="BorderThickness" Value="0" />
+			<Setter Property="FontSize" Value="16"/>
+		</Style>
+	</Window.Resources>
+	
+	<Grid>
+		<StackPanel>
+			<AdornerDecorator>
+				<TextBox x:Name="PassphraseBox" Margin="2,3,2,0">
+					<local:WatermarkService.Watermark>
+						<TextBlock FontSize="14" Foreground="LightGray" TextAlignment="Center">
+							Private lobby passphrase...
+						</TextBlock>
+					</local:WatermarkService.Watermark>
+				</TextBox>
+			</AdornerDecorator>
+			
+			<AdornerDecorator>
+				<TextBox x:Name="Rdr2Box" Margin="2,2,2,0" MouseDoubleClick="Rdr2BoxDoubleClicked">
+					<local:WatermarkService.Watermark>
+						<TextBlock FontSize="14" Foreground="LightGray" TextAlignment="Center">
+							RDR2 Location...
+						</TextBlock>
+					</local:WatermarkService.Watermark>
+				</TextBox>
+			</AdornerDecorator>
+			
+			<Grid>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="*"/>
+					<ColumnDefinition Width="*"/>
+				</Grid.ColumnDefinitions>
+				
+				<Button Grid.Column="0" Background="#E24343" Margin="2,2,2,2" Click="RevertButtonClicked">Back to Public</Button>
+				<Button Grid.Column="1" Margin="2,2,2,2" Click="SaveButtonClicked">Save</Button>
+			</Grid>
+		</StackPanel>
+    </Grid>
+</Window>
