@@ -1,6 +1,4 @@
-<center>
-    ![RDOP](./.media/rdop.png)
-</center>
+![RDOP](./.media/rdop.png)
 
 # About
 A simple tool that allows you to play in private lobbies in [Red Dead Online](https://www.rockstargames.com/reddeadonline).
