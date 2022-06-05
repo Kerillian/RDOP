@@ -13,7 +13,7 @@
         WindowStartupLocation="CenterScreen">
 	
 	<Window.Resources>
-		<Style TargetType="Grid">
+		<Style TargetType="StackPanel">
 			<Setter Property="Background" Value="#202020" />
 		</Style>
 
@@ -38,37 +38,35 @@
 		</Style>
 	</Window.Resources>
 	
-	<Grid>
-		<StackPanel>
-			<AdornerDecorator>
-				<TextBox x:Name="PassphraseBox" Margin="2,3,2,0">
-					<local:WatermarkService.Watermark>
-						<TextBlock FontSize="14" Foreground="LightGray" TextAlignment="Center">
-							Private lobby passphrase...
-						</TextBlock>
-					</local:WatermarkService.Watermark>
-				</TextBox>
-			</AdornerDecorator>
+	<StackPanel>
+		<AdornerDecorator>
+			<TextBox x:Name="PassphraseBox" Margin="2,3,2,0">
+				<local:WatermarkService.Watermark>
+					<TextBlock FontSize="14" Foreground="LightGray" TextAlignment="Center">
+						Private lobby passphrase...
+					</TextBlock>
+				</local:WatermarkService.Watermark>
+			</TextBox>
+		</AdornerDecorator>
+		
+		<AdornerDecorator>
+			<TextBox x:Name="Rdr2Box" Margin="2,2,2,0" MouseDoubleClick="Rdr2BoxDoubleClicked">
+				<local:WatermarkService.Watermark>
+					<TextBlock FontSize="14" Foreground="LightGray" TextAlignment="Center">
+						RDR2 Location...
+					</TextBlock>
+				</local:WatermarkService.Watermark>
+			</TextBox>
+		</AdornerDecorator>
+		
+		<Grid>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="*"/>
+				<ColumnDefinition Width="*"/>
+			</Grid.ColumnDefinitions>
 			
-			<AdornerDecorator>
-				<TextBox x:Name="Rdr2Box" Margin="2,2,2,0" MouseDoubleClick="Rdr2BoxDoubleClicked">
-					<local:WatermarkService.Watermark>
-						<TextBlock FontSize="14" Foreground="LightGray" TextAlignment="Center">
-							RDR2 Location...
-						</TextBlock>
-					</local:WatermarkService.Watermark>
-				</TextBox>
-			</AdornerDecorator>
-			
-			<Grid>
-				<Grid.ColumnDefinitions>
-					<ColumnDefinition Width="*"/>
-					<ColumnDefinition Width="*"/>
-				</Grid.ColumnDefinitions>
-				
-				<Button Grid.Column="0" Background="#E24343" Margin="2,2,2,2" Click="RevertButtonClicked">Back to Public</Button>
-				<Button Grid.Column="1" Margin="2,2,2,2" Click="SaveButtonClicked">Save</Button>
-			</Grid>
-		</StackPanel>
-    </Grid>
+			<Button Grid.Column="0" Background="#E24343" Margin="2,2,2,2" Click="RevertButtonClicked">Back to Public</Button>
+			<Button Grid.Column="1" Margin="2,2,2,2" Click="SaveButtonClicked">Save</Button>
+		</Grid>
+	</StackPanel>
 </Window>
