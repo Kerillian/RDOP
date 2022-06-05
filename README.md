@@ -6,13 +6,16 @@ If somebody uses the same passphrase as you they'll be able to join you.
 
 # Tutorial
 
-**Running as admin may be required depending on the location and or folder permissions of the game**
-
+* Exit Red Dead if it is running.
 * Run RDOP.exe
 * Double click the "RDR2 Location..." textbox
 * Locate and select RDR2.exe from the root directory of the game
 * Type in your passphrase
 * Save
+
+##### Quick Notes
+* **Running as admin may be required depending on the location and or folder permissions of the game**
+* **The passphrase IS case and whitespace sensitive**
 
 # Warning
 This method of private lobbies has been around for about 2 years, and to my current knowledge nobody has been banned for using it.<br>
