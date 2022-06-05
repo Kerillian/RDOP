@@ -19,5 +19,5 @@ If somebody uses the same passphrase as you they'll be able to join you.
 
 # Warning
 This method of private lobbies has been around for about 2 years, and to my current knowledge nobody has been banned for using it.<br>
-It is a simple file mod that changes 2 files in the game, no custom code or memory editing.<br>
+It is a simple file mod that adds 2 files to the game, no custom code or memory editing.<br>
 **But remember that with any tool or modification there is always a risk of getting banned.**
