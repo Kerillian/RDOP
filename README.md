@@ -15,6 +15,7 @@ If somebody uses the same passphrase as you they'll be able to join you.
 
 ##### Quick Notes
 * **Running as admin may be required depending on the location and or folder permissions of the game**
+* **If the legal screens still appear after saving that probably means R\* has patched this method**
 * **The passphrase IS case and whitespace sensitive**
 
 # ⚠️ Warning ⚠️
