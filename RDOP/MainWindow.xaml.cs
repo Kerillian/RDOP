@@ -44,7 +44,7 @@ namespace RDOP
 
 		private async void Rdr2BoxDoubleClicked(object sender, MouseButtonEventArgs e)
 		{
-			OpenFileDialog dialog = new OpenFileDialog
+			OpenFileDialog dialog = new OpenFileDialog()
 			{
 				Multiselect = false,
 				Filter = "RDR2 Executable|RDR2.exe"
