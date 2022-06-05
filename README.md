@@ -8,6 +8,7 @@ If somebody uses the same passphrase as you they'll be able to join you.
 
 **Running as admin may be required depending on the location and or folder permissions of the game**
 
+* Exit Red Dead if it is running.
 * Run RDOP.exe
 * Double click the "RDR2 Location..." textbox
 * Locate and select RDR2.exe from the root directory of the game
