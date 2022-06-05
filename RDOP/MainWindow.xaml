@@ -10,7 +10,9 @@
         SizeToContent="Height"
         Width="400"
         ResizeMode="NoResize"
-        WindowStartupLocation="CenterScreen">
+        WindowStartupLocation="CenterScreen"
+        Loaded="OnMainWindowLoaded"
+        Closed="OnMainWindowClosed">
 	
 	<Window.Resources>
 		<Style TargetType="StackPanel">

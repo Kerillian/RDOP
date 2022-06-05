@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Text.Json;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
@@ -17,6 +18,7 @@ namespace RDOP
 			InitializeComponent();
 		}
 
+		private static Config? config;
 		private static readonly Regex PassphrasePattern = new Regex(@"\<\!\-\- (.+) \-\-\>", RegexOptions.Compiled);
 
 		private static bool IsValidGamePath(string path)
@@ -26,7 +28,7 @@ namespace RDOP
 			       Directory.Exists(Path.Combine(path, "x64/data"));
 		}
 
-		private async Task TryUpdatePassphrase()
+		private async Task<bool> TryUpdatePassphrase()
 		{
 			if (IsValidGamePath(Rdr2Box.Text))
 			{
@@ -37,9 +39,39 @@ namespace RDOP
 					if (PassphrasePattern.Match(comment) is {Groups.Count: > 1} match)
 					{
 						PassphraseBox.Text = match.Groups[1].Value;
+						return true;
 					}
 				}
 			}
+
+			return false;
+		}
+		
+		private async void OnMainWindowLoaded(object sender, RoutedEventArgs e)
+		{
+			if (File.Exists("config.json"))
+			{
+				config = JsonSerializer.Deserialize<Config>(await File.ReadAllTextAsync("config.json"));
+				
+				if (config?.Path is { Length: > 0 } && IsValidGamePath(config.Path))
+				{
+					Rdr2Box.Text = config.Path;
+
+					if (!await TryUpdatePassphrase() && config.Passphrase is {Length: > 0})
+					{
+						PassphraseBox.Text = config.Passphrase;
+					}
+				}
+			}
+		}
+		
+		private async void OnMainWindowClosed(object? sender, EventArgs e)
+		{
+			await File.WriteAllTextAsync("config.json", JsonSerializer.Serialize(new Config()
+			{
+				Passphrase = PassphraseBox.Text,
+				Path = Rdr2Box.Text
+			}));
 		}
 
 		private async void Rdr2BoxDoubleClicked(object sender, MouseButtonEventArgs e)
