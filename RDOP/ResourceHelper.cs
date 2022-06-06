@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RDOP
 {
-	public class ResourceHelper
+	public static class ResourceHelper
 	{
 		public static async Task<List<string>?> Read(string name)
 		{

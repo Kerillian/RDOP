@@ -22,12 +22,6 @@ namespace RDOP
 				Margin = new Thickness(control.Padding.Left, control.Padding.Top + 1, control.Padding.Right, control.Padding.Bottom)
 			};
 
-			if (control is ItemsControl and not ComboBox)
-			{
-				contentPresenter.VerticalAlignment = VerticalAlignment.Center;
-				contentPresenter.HorizontalAlignment = HorizontalAlignment.Center;
-			}
-
 			Binding binding = new Binding("IsVisible")
 			{
 				Source = adornedElement,
